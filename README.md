@@ -1,94 +1,109 @@
-<!-- Custom Banner -->
-
-<h1 align="center">🎬 <span style="color:#ffcc00;">Film Öneri Sistemi</span> </h1>
+# 🎬 **Film Öneri Sistemi**
 
 <p align="center">
-  <i>📊 IMDB Kullanıcı Puanlarını Kullanarak Korelasyon Tabanlı Öneri Modeli</i>
+  <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/512/external-cinema-movie-theater-flaticons-lineal-color-flat-icons.png" width="140" />
 </p>
 
 <p align="center">
-  <b>🐍 Python • 📚 Pandas • 🔢 NumPy • 🤖 Recommender Systems</b>
+  <strong>📊 IMDB Kullanıcı Puanlarını Kullanarak Korelasyon Tabanlı Film Öneri Modeli</strong><br>
+  <sub>Python • Pandas • NumPy • Recommender Systems</sub>
 </p>
 
 ---
 
-## ✨ <span style="color:#ff8800;">Genel Bakış</span>
+## ✨ Genel Bakış
 
-Bu proje, kullanıcıların filmlere verdiği puanları analiz ederek **benzer filmleri otomatik olarak öneren** bir sistem oluşturur.  
-Model, tamamen **korelasyon tabanlı işbirlikçi filtreleme** yöntemi ile çalışır.
+Bu proje, kullanıcıların filmlere verdiği puanları analiz ederek **benzer filmleri otomatik olarak öneren** bir sistem geliştirmektedir.  
+Model tamamen **korelasyon tabanlı işbirlikçi filtreleme (Item-Based CF)** prensibi ile çalışır.
 
-Bu çalışma özellikle aşağıdaki konular için oldukça öğreticidir:
+Bu proje özellikle:
 
-- ✔ Öneri sistemlerine başlangıç  
-- ✔ İşbirlikçi filtreleme mantığı  
-- ✔ Veri manipülasyonu, pivot tablo ve korelasyon hesaplama  
-- ✔ Pandas ile veri işleme pratikleri  
+- ✔ Öneri sistemlerine giriş yapmak isteyenler  
+- ✔ Veri analizi ve Pandas pratiği geliştirmek isteyenler  
+- ✔ Basit ama etkili bir model oluşturmak isteyenler  
+
+için ideal bir örnektir.
 
 ---
 
-## 🎯 <span style="color:#00b7ff;">Projenin Amacı</span>
+## 🎯 Projenin Amacı
 
 Bu sistem:
 
-- 🎥 Kullanıcıların benzer puanlama davranışlarına göre **filmler arasındaki benzerlikleri belirler**,  
-- ⭐ Belirli bir filmi sevenlerin sevebileceği filmleri tahmin eder,  
-- 🧮 Veri bilimi sürecinin temel adımlarını (ETL + analiz + modelleme) pratik olarak gösterir.  
+- 🎥 Kullanıcıların benzer puanlama davranışlarına göre **filmler arasındaki benzerlikleri hesaplar**,  
+- ⭐ Popüler bir filmi seven kullanıcılar için **benzer filmleri önerir**,  
+- 🧮 Veri manipülasyonu, pivot tablo ve korelasyon hesaplama adımlarını gösterir.  
 
 ---
 
-## 🧠 <span style="color:#9b59b6;">Model: Item-Based Collaborative Filtering</span>
+## 🧠 Kullanılan Yöntem: *Item-Based Collaborative Filtering*
 
-Bu projede **Filme Dayalı İşbirlikçi Filtreleme** yöntemi uygulanmıştır.
+Bu projede **Filme Dayalı İşbirlikçi Filtreleme** uygulanır.
 
-> 🧩 *Aynı kullanıcılar iki filme benzer puanlar veriyorsa, bu iki film birbirine benzerdir.*
+> 🧩 *Aynı kullanıcılar iki filme benzer puanlar veriyorsa, bu iki film benzerdir.*
 
-Bu benzerlik ölçümü için:
+Kullanılan teknikler:
 
-- **Pearson Korelasyon Katsayısı** kullanılır  
-- Kullanıcı–film matrisi **pivot tablo** ile oluşturulur  
-- Seçilen film ile diğerleri arasındaki korelasyon hesaplanır  
-
-Bu yöntem, içerik bilgisine ihtiyaç duymadığı için **sadece kullanıcı puanlarıyla** güçlü sonuç verir.
+- 📌 Pivot tablo ile kullanıcı–film matrisi oluşturma  
+- 📌 Pearson korelasyon katsayısı ile benzerlik ölçme  
+- 📌 Eksik değerleri filtreleme  
+- 📌 Oy sayısına göre güvenilirlik kontrolü  
 
 ---
 
-## 📁 <span style="color:#f54291;">Veri Setleri</span>
+## 📁 Veri Setleri
 
 | Dosya | Açıklama |
-|------|----------|
-| `users.data` | Kullanıcı–film puanları (user_id, item_id, rating, timestamp) |
-| `movie_id_titles.csv` | item_id ve film adı eşleştirmeleri |
+|-------|----------|
+| `users.data` | user_id, item_id, rating, timestamp |
+| `movie_id_titles.csv` | Film ID ve film isimleri |
 
-Bu iki veri seti, `item_id` üzerinden birleştirilerek analiz yapılır.
+İki tablo, `item_id` üzerinden birleştirilerek analiz edilir.
 
 ---
 
-## 🧩 <span style="color:#9961ab;">Geliştirme Fikirleri</span>
+## 🛠️ Kullanılan Teknolojiler
 
-Bu projeyi daha kapsamlı bir öneri sistemine dönüştürmek için aşağıdaki geliştirme fikirlerini uygulayabilirsin:
+- 🐍 Python 3  
+- 📚 Pandas  
+- 🔢 NumPy  
+- 📓 Jupyter Notebook  
 
-➕ Tür (genre) tabanlı öneri ekleme
+---
 
-🤝 User-Based Collaborative Filtering modeli ekleme
+## 🧩 Kod Akışı
 
-📈 Cosine Similarity, Jaccard gibi alternatif benzerlik ölçümleri deneme
+1. Veri dosyalarını okuma  
+2. `merge()` ile birlikleştirme  
+3. Pivot tablo oluşturma  
+4. Korelasyon hesaplama  
+5. 100+ oy alan filmleri filtreleme  
+6. En benzer filmlerin öneri listesi olarak sunulması  
 
-🌐 Streamlit veya Flask ile web arayüzü hazırlama
+---
 
-⭐ IMDB Weighted Rating (WR) formülü ile daha doğru sıralamalar
+## 🚀 Geliştirme Fikirleri
 
-🧠 TF-IDF + Cosine Similarity ile içerik tabanlı öneri ekleme
+Aşağıdaki geliştirmelerle sistemi çok daha gelişmiş hâle getirebilirsiniz:
 
-🔄 Hibrit öneri sistemi oluşturma (CF + Content-Based)
+- ➕ Tür (genre) tabanlı öneri ekleme  
+- 🤝 User-Based Collaborative Filtering oluşturma  
+- 📈 Cosine Similarity veya Jaccard Index ile benzerlik karşılaştırma  
+- 🌐 Streamlit / Flask ile web uygulaması geliştirme  
+- ⭐ IMDB Weighted Rating sistemi entegre etme  
+- 🧠 TF-IDF + Cosine Similarity ile içerik tabanlı öneri  
+- 🔄 Hibrit öneri sistemi (Collaborative + Content-Based)  
+- 📊 Sonuçları grafiklerle görselleştirme  
+- 🗂️ Daha büyük veri setlerinde performans testi (MovieLens 20M gibi)  
 
-📊 Sonuçları grafiklerle görselleştirme
+---
 
-🗂️ Daha büyük veri setleri (MovieLens 20M gibi) ile performansı değerlendirme
+## 🎉 Sonuç
 
-## 🛠️ <span style="color:#1abc9c;">Kullanılan Teknolojiler</span>
+Bu proje, film öneri sistemlerinin temel mantığını anlamak için harika bir başlangıçtır.  
+Korelasyon tabanlı yöntem basit ama etkili sonuçlar verir ve kolayca genişletilebilir.
 
-```text
-🐍 Python 3
-📚 Pandas
-🔢 NumPy
-📓 Jupyter Notebook
+Daha gelişmiş sistemler için yukarıdaki fikirleri ekleyerek projeyi büyütebilirsiniz! 🚀
+
+---
+
