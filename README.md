@@ -36,7 +36,7 @@ Bu sistem:
 
 ---
 
-## 🧠 Kullanılan Yöntem: *Item-Based Collaborative Filtering*
+## 🧠 Kullanılan Yöntem: 
 
 Bu projede **Filme Dayalı İşbirlikçi Filtreleme** uygulanır.
 
